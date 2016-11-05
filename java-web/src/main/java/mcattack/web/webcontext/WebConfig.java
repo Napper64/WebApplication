@@ -3,6 +3,8 @@ package mcattack.web.webcontext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -13,7 +15,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "mcattack.web.controller")
+@ComponentScan(basePackages = "mcattack.web.controller", excludeFilters = {
+		@ComponentScan.Filter(value = Controller.class, type = FilterType.ANNOTATION),
+		@ComponentScan.Filter(value = Configuration.class, type = FilterType.ANNOTATION) })
 public class WebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean

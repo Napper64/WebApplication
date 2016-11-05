@@ -6,10 +6,10 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.hibernate.cfg.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
@@ -20,13 +20,10 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.web.servlet.mvc.Controller;
 
 @Configuration
 @EnableJpaRepositories(basePackages = { "mcattack.dao.repository" })
-@ComponentScan(basePackages = "mcattack", excludeFilters = {
-		@ComponentScan.Filter(value = Controller.class, type = FilterType.ANNOTATION),
-		@ComponentScan.Filter(value = Configuration.class, type = FilterType.ANNOTATION) })
+@ComponentScan(basePackages = "mcattack")
 public class AppConfig extends RepositoryRestMvcConfiguration {
 
 	@Override
@@ -57,7 +54,7 @@ public class AppConfig extends RepositoryRestMvcConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws ClassNotFoundException {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setDataSource(dataSource());
-		factoryBean.setPackagesToScan("be.g00glen00b.model");
+		factoryBean.setPackagesToScan("mcattack.dao.entity");
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
 		factoryBean.setJpaProperties(jpaProperties());
 
@@ -75,7 +72,7 @@ public class AppConfig extends RepositoryRestMvcConfiguration {
 	@Bean
 	public Properties jpaProperties() {
 		Properties properties = new Properties();
-		properties.put(HBM2DDL_AUTO, "create-drop");
+		properties.put(AvailableSettings.HBM2DDL_AUTO, "create-drop");
 		return properties;
 	}
 }
