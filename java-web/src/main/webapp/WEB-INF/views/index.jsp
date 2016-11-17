@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="./libs/bootstrap-css-only/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./libs//bower_components/bootstrap-css-only/css/bootstrap.min.css" />
   </head>
   <body data-ng-app="myApp">
     <div class="container" data-ng-controller="AppController">
