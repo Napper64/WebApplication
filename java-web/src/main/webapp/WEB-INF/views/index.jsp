@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="./libs//bower_components/bootstrap-css-only/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./libs/bower_components/bootstrap-css-only/css/bootstrap.min.css" />
+    <script type="text/javascript" src="./libs/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./libs/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="./libs/bower_components/angular-spring-data-rest/dist/angular-spring-data-rest.min.js"></script>
+    <script type="text/javascript" src="./libs/bower_components/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="./app/app.js"></script>
+    <script type="text/javascript" src="./app/controller.js"></script>
+    <script type="text/javascript" src="./app/service.js"></script>
   </head>
   <body data-ng-app="myApp">
     <div class="container" data-ng-controller="AppController">
@@ -36,12 +43,5 @@
         </div>
       </form>
     </div>
-    <script type="text/javascript" src="./libs/bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="./libs/bower_components/angular-resource/angular-resource.min.js"></script>
-    <script type="text/javascript" src="./libs/bower_components/angular-spring-data-rest/dist/angular-spring-data-rest.min.js"></script>
-    <script type="text/javascript" src="./libs/bower_components/lodash/dist/lodash.min.js"></script>
-    <script type="text/javascript" src="./app/app.js"></script>
-    <script type="text/javascript" src="./app/controllers.js"></script>
-    <script type="text/javascript" src="./app/services.js"></script>
   </body>
 </html>

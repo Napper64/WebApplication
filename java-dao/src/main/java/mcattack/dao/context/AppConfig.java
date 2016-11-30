@@ -10,6 +10,7 @@ import org.hibernate.cfg.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
@@ -23,7 +24,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
 @EnableJpaRepositories(basePackages = { "mcattack.dao.repository" })
-@ComponentScan(basePackages = "mcattack")
+@ComponentScan(basePackages = "mcattack", excludeFilters = {
+		@ComponentScan.Filter(value = Configuration.class, type = FilterType.ANNOTATION) })
 public class AppConfig extends RepositoryRestMvcConfiguration {
 
 	@Override
